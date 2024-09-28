@@ -3,7 +3,7 @@
 <p align="center">
 <img src="Media/Zunlocker.png"
 	alt="Zunlocker icon"
-	width="400"
+	width="300"
 	style="float: left; margin-right: 10px;" />
 </p>
 
