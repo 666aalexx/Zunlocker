@@ -3,13 +3,6 @@
 import zipfile; import sys; import argparse; import os; import time;
 from pwn import *
 
-#Colours
-redColour = "\033[31m"
-greenColour = "\033[32m"
-yellowColour = "\033[33m"
-blueColour = "\033[34m"
-resetColour = "\033[0m"
-
 parser = argparse.ArgumentParser()
 parser.add_argument("-zf", "--zipfile", required=True)
 parser.add_argument("-w", "--wordlist", required=True)
