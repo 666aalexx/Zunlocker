@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import zipfile; import sys; import argparse; import os; import time;
+from pwn import *
 
 #Colours
 redColour = "\033[31m"
@@ -19,6 +20,9 @@ zfile = zipfile.ZipFile(args.zipfile)
 wordlist = args.wordlist
 zlocation = args.oN
 
+p1 = log.progress("Decrypting zip")
+p2 = log.progress("Password")
+
 def main():
     with open(wordlist, "r") as wfile:
         for word in wfile:
@@ -26,13 +30,11 @@ def main():
             try:
                 zfile.extractall(pwd=word.encode())
             except:
-                time.sleep(0.01)
-                os.system("clear")
-                print(f"Testing passwords: {redColour}{word}{resetColour}")
+                p2.status(word)
                 pass
             else:
-                os.system("clear")
-                print(f"PASSWORD FOUND! {greenColour}{word}{resetColour}")
+                p1.success("Completed")
+                p2.success(word)
                 if bool(zlocation):
                     with open(zlocation, "w") as zpassword:
                         zpassword.write(f"{word}")
