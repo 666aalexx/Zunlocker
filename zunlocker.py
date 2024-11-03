@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import zipfile; import sys; import argparse; import os; import time;
+import zipfile, sys, argparse 
 from pwn import *
 
 parser = argparse.ArgumentParser()
